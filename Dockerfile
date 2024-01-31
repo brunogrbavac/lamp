@@ -17,10 +17,13 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-lang
 
 # Set permissions for phpMyAdmin
 RUN chown -R www-data:www-data /var/www/html/phpmyadmin
-# Copy index.php into the Docker container
+
+# Copy index.php and seed.php into the Docker container
 COPY index.php /var/www/html/index.php
 COPY seed.php /var/www/html/seed.php
-# Set permissions and ownership for index.php
+
+# Set permissions and ownership for index.php and seed.php
 RUN chmod a+r /var/www/html/index.php && chmod a+r /var/www/html/seed.php && chown www-data:www-data /var/www/html/index.php /var/www/html/seed.php
+
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite

@@ -1,0 +1,11 @@
+{
+    "name": "PHP & Apache & MySQL & phpMyAdmin",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "web",
+    "workspaceFolder": "/var/www/html",
+    "extensions": ["felixfbecker.php-pack"],
+    "postCreateCommand": "service apache2 start && php /var/www/html/seed.php",
+    "settings": { 
+        "php.validate.executablePath": "/usr/local/bin/php"
+    }
+}

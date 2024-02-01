@@ -14,4 +14,4 @@ A template database named `database` is included, featuring a table called `myTa
 
 ## phpMyAdmin
 
-phpMyAdmin has been set up for easy database management and can be accessed directly by navigating to `/phpmyadmin` on port 80. This provides a convenient web interface for managing your database, allowing you to interact with your databases, tables, and data directly through your browser.
+phpMyAdmin has been set up for easy database management and can be accessed directly by navigating to `/phpmyadmin` on port 80. This provides a convenient web interface for managing your database, allowing you to interact with your databases, tables, and data directly through your browser. Default username is `admin` and the default set password is `password`.

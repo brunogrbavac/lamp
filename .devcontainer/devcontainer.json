@@ -1,11 +1,12 @@
 {
-    "name": "PHP & Apache & MySQL & phpMyAdmin",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "web",
-    "workspaceFolder": "/var/www/html",
-    "extensions": ["felixfbecker.php-pack"],
-    "postCreateCommand": "service apache2 start && php /var/www/html/seed.php",
-    "settings": { 
-        "php.validate.executablePath": "/usr/local/bin/php"
-    }
+    "name": "PHP & MySQL",
+    "dockerFile": "../Dockerfile",
+    "forwardPorts": [
+        80,
+        3306
+    ],
+    "extensions": [
+        "felixfbecker.php-pack"
+    ],
+    "postCreateCommand": "service mariadb start && mariadb -u root < /grant-privileges.sql && service apache2 start && php ./seed.php"
 }

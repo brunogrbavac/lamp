@@ -1,0 +1,4 @@
+CREATE USER 'admin'@'127.0.0.1' IDENTIFIED BY 'password';
+CREATE DATABASE `database`;
+GRANT ALL PRIVILEGES ON `database`.* TO 'admin'@'127.0.0.1';
+FLUSH PRIVILEGES;

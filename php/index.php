@@ -4,24 +4,31 @@ $mysqli = new mysqli('127.0.0.1', 'admin', 'password', 'database');
 if ($mysqli->connect_error) {
     die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $mysqli->query("INSERT INTO myTable (name) VALUES ('$name')");
-}
 
-$result = $mysqli->query('SELECT * FROM myTable');
+$result = $mysqli->query('SELECT * FROM myTable LIMIT 1');
 if ($result === false) {
     die('Error executing query: ' . $mysqli->error);
 }
 
-while ($row = $result->fetch_assoc()) {
-    echo $row['name'] . '<br>';
-}
+$row = $result->fetch_assoc();
+$content = $row['content'];
 
 $mysqli->close();
 ?>
 
-<form method="post">
-    <input type="text" name="name">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div><?php echo $content; ?></div>
+</body>
+</html>

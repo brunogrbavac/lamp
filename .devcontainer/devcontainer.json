@@ -4,6 +4,6 @@
  "forwardPorts": [80, 3306],
  "extensions": ["felixfbecker.php-pack", "esbenp.prettier-vscode"],
  "onCreateCommand": "rm -rf ./php/phpmyadmin",
- "postCreateCommand": "mkdir -p /workspaces/lamp/php/phpmyadmin/tmp/ && service mariadb start && mariadb -u root < ./.devcontainer/.config/grant-privileges.sql &&  mv /var/www/html/phpmyadmin/phpMyAdmin-5.1.1-all-languages/* /workspaces/lamp/php/phpmyadmin/ && service apache2 start && a2ensite 000-default && php ./php/seed.php",
- "postStartCommand": "chown -R www-data:www-data /workspaces/lamp/php/phpmyadmin/tmp/ && chmod 755 /workspaces/lamp/php/phpmyadmin/tmp/ && chown -R www-data:www-data /workspaces/lamp/php && find /workspaces/lamp/php -type d -exec chmod 755 {} \\; && find /workspaces/lamp/php -type f -exec chmod 644 {} \\;",
+ "postCreateCommand": "mkdir -p /workspaces/lamp/php/phpmyadmin/tmp/ &&  mv /var/www/html/phpmyadmin/phpMyAdmin-5.1.1-all-languages/* /workspaces/lamp/php/phpmyadmin/ && service mariadb start &&  mariadb -u root < ./.devcontainer/.config/grant-privileges.sql && service mariadb stop",
+ "postStartCommand": "service mariadb start && service apache2 start && a2ensite 000-default  && php ./php/seed.php && chown -R www-data:www-data /workspaces/lamp/php/phpmyadmin/tmp/ && chmod 755 /workspaces/lamp/php/phpmyadmin/tmp/ && chown -R www-data:www-data /workspaces/lamp/php && find /workspaces/lamp/php -type d -exec chmod 755 {} \\; && find /workspaces/lamp/php -type f -exec chmod 644 {} \\;",
 }

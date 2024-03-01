@@ -1,6 +1,7 @@
 # LAMP Stack Template
 
 This project is a ready-to-use template for a LAMP (Linux, Apache, MySQL, PHP) stack, providing a comprehensive environment for web development.
+Apache server hosts at port 8000.
 
 ## Overview
 
